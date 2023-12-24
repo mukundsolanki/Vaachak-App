@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  url_launcher: ^6.2.2  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -65,6 +66,12 @@ flutter:
   assets:
     - assets/lottie/call.json
     - assets/lottie/call2.json
+    - images/asl_basics.jpg
+    - images/basics_isl.jpg
+    - images/feelingin_isl.jpg
+    - images/asl_phrases.jpg
+    - images/article2.jpg
+    - images/article_1.jpg
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
