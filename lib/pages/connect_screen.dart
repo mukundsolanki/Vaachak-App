@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-// import 'widgets/call.dart';
+import 'widgets/call.dart';
 
 class ConnectScreen extends StatelessWidget {
   @override
@@ -18,7 +18,7 @@ class ConnectScreen extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: () {
                 // Call ID is used to establish connection between two diifferent users
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => const CallPage(callID: 'User1connectsUser2'),),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CallPage(),),);
               },
               icon: Icon(Icons.video_call),
               label: Text('Start Call'),
