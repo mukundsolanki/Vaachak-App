@@ -15,6 +15,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void removeText(int index) {
+    setState(() {
+      texts.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +31,43 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: texts.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(8.0),
-                    margin: EdgeInsets.symmetric(vertical: 4.0),
-                    color: Colors.grey[200],
-                    child: Text(texts[index]),
+                    margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Adjust spacing
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    padding: EdgeInsets.all(16.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            texts[index],
+                            style: TextStyle(
+                              fontSize: 22.0,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 16.0),
+                        IconButton(
+                          icon: Icon(
+                            Icons.check_circle,
+                            color: Colors.green,
+                          ),
+                          onPressed: () {
+                          },
+                        ),
+                        // SizedBox(width: 2.0),
+                        IconButton(
+                          icon: Icon(
+                            Icons.delete,
+                            color: Colors.red,
+                          ),
+                          onPressed: () {
+                            removeText(index);
+                          },
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),
