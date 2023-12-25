@@ -26,29 +26,30 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Text(
-                  "Welcome!",
+                  "Welcome,",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 45,
-                      fontWeight: FontWeight.bold),
+                      //fontWeight: FontWeight.bold
+                  ),
                 ),
                 SizedBox(
                   height: 13,
                 ),
-                Text(
-                  "Enter IP address of your device",
-                  style: TextStyle(color: Colors.grey.shade500, fontSize: 16),
-                ),
+                 Text(
+                   "Enter Your Device IP Address to Pair",
+                   style: TextStyle(color: Colors.grey.shade500, fontSize: 16),
+                 ),
                 SizedBox(
                   height: 30,
                 ),
                 Container(
                   height: 50,
-                  margin: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(left: 25, right: 25),
                   child: TextField(
                     style: TextStyle(fontSize: 16, color: Colors.white),
                     decoration: InputDecoration(
-                      hintText: "IP Address",
+                      hintText: "  IP Address",
                       hintStyle: TextStyle(color: Colors.grey.shade700),
                       filled: true,
                       fillColor: Color(0xff161d27).withOpacity(0.9),
@@ -62,7 +63,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 30,
                 ),
 
 
@@ -71,16 +72,16 @@ class LoginPage extends StatelessWidget {
                   width: 100,
                   margin: EdgeInsets.only(left: 50, right: 50),
                   child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "SIGN IN",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13),
-                      ),
-                      style:ElevatedButton.styleFrom(backgroundColor: Colors.white,
-                        side: BorderSide(width: 0.3,color:Color(0xffffffff)),)
+                    onPressed: () {},
+                    child: Text(
+                      "SIGN IN",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13),
+                    ),
+                    style:ElevatedButton.styleFrom(backgroundColor: Colors.white,
+                    side: BorderSide(width: 0.3,color:Color(0xffffffff)),)
                   ),
                 ),
                 SizedBox(height: 70,)
