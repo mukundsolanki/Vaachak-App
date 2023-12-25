@@ -68,12 +68,13 @@ flutter:
     - assets/lottie/call2.json
     - assets/cover.jpg
     - assets/avatar.jpg
-    - images/asl_basics.jpg
-    - images/basics_isl.jpg
-    - images/feelingin_isl.jpg
-    - images/asl_phrases.jpg
-    - images/article2.jpg
-    - images/article_1.jpg
+    - assets/images/asl_basics.jpg
+    - assets/images/basics_isl.jpg
+    - assets/images/feelingin_isl.jpg
+    - assets/images/asl_phrases.jpg
+    - assets/images/article2.jpg
+    - assets/images/article_1.jpg
+    - assets/login_bg.png
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
