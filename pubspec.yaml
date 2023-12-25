@@ -65,6 +65,8 @@ flutter:
   assets:
     - assets/lottie/call.json
     - assets/lottie/call2.json
+    - assets/cover.jpg
+    - assets/avatar.jpg
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
