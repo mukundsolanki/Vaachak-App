@@ -9,7 +9,8 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   List<TextInfo> texts = [];
   late AnimationController _rotateController;
 
@@ -55,20 +56,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Color.fromARGB(255, 10, 10, 10),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(height: 10.0),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
               'Hello User,',
               style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.italic
-              ),
+                  fontSize: 30.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.italic),
             ),
           ),
           Expanded(
@@ -84,7 +85,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       itemCount: texts.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                          height: 70,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 16.0, vertical: 8.0),
                           decoration: BoxDecoration(
                             color: Colors.grey.shade300,
                             borderRadius: BorderRadius.circular(12.0),
@@ -106,7 +109,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                       animation: _rotateController,
                                       builder: (context, child) {
                                         return Transform.rotate(
-                                          angle: _rotateController.value * 5.0 * math.pi,
+                                          angle: _rotateController.value *
+                                              5.0 *
+                                              math.pi,
                                           child: Icon(
                                             Icons.sync_rounded,
                                             color: Colors.blue,
@@ -148,13 +153,21 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 MyBottomSheet(onTextCreated: addText),
           );
         },
-        label: Text('ADD SIGN'),
-        icon: Icon(Icons.edit),
+        label: Text(
+          'ADD SIGN',
+          style: TextStyle(
+            fontSize: 15,
+            color: Colors.black,
+          ),
+        ),
+        icon: Icon(
+          Icons.edit,
+          color: Colors.black,
+        ),
       ),
     );
   }
 }
-
 
 class TextInfo {
   final String text;
