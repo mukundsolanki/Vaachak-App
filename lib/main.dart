@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 255, 255, 255)),
        
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'VAACHAK'),
     );
   }
