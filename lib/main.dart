@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+       primaryColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 255, 255, 255)),
+       
       ),
       home: const MyHomePage(title: 'VAACHAK'),
     );
@@ -44,80 +45,83 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 10, 10, 10),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         centerTitle: true,
         title: Text(
           widget.title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 25,
           ),
         ),
       ),
       body: screens[index],
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          backgroundColor: Color.fromARGB(255, 0, 0, 0),
-          indicatorColor: Colors.grey.shade900,
-          labelTextStyle: MaterialStateProperty.all(
-            TextStyle(
-                fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white),
+        bottomNavigationBar: NavigationBarTheme(
+          data: NavigationBarThemeData(
+            backgroundColor:  Colors.white,
+           indicatorColor:  Colors.grey[400],
+            labelTextStyle: MaterialStateProperty.all(
+              TextStyle(
+                  fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black),
+            ),
           ),
+          child: NavigationBar(
+              selectedIndex: index,
+              onDestinationSelected: (index) =>
+              {setState(() => this.index = index)},
+              destinations: [
+                NavigationDestination(
+                  icon: Icon(
+                    Icons.home_outlined,
+                    color: Colors.black,
+                  ),
+                  label: 'Home',
+                  selectedIcon: Icon(
+                    Icons.home_filled,
+                    color: Colors.black,
+                  ),
+                ),
+                NavigationDestination(
+                  icon: Icon(
+                    Icons.connect_without_contact_outlined,
+                    color: Colors.black,
+                  ),
+                  label: 'Connect',
+                  selectedIcon: Icon(
+                    Icons.connect_without_contact,
+                    color: Colors.black,
+                  ),
+                ),
+                NavigationDestination(
+                  icon: Icon(
+                    Icons.language_outlined,
+                    color: Colors.black,
+                  ),
+                  label: 'Learnings',
+                  selectedIcon: Icon(
+                    Icons.language,
+                    color: Colors.black,
+                  ),
+                ),
+                NavigationDestination(
+                  icon: Icon(
+                    Icons.settings_outlined,
+                    color: Colors.black,
+                  ),
+                  label: 'Settings',
+                  selectedIcon: Icon(
+                    Icons.settings,
+                    color: Colors.black,
+                  ),
+                ),
+              ]),
         ),
-        child: NavigationBar(
-            selectedIndex: index,
-            onDestinationSelected: (index) =>
-                {setState(() => this.index = index)},
-            destinations: [
-              NavigationDestination(
-                icon: Icon(
-                  Icons.home_outlined,
-                  color: Colors.white,
-                ),
-                label: 'Home',
-                selectedIcon: Icon(
-                  Icons.home_filled,
-                  color: Color.fromARGB(255, 207, 61, 51),
-                ),
-              ),
-              NavigationDestination(
-                icon: Icon(
-                  Icons.connect_without_contact_outlined,
-                  color: Colors.white,
-                ),
-                label: 'Connect',
-                selectedIcon: Icon(
-                  Icons.connect_without_contact,
-                  color: Color.fromARGB(255, 207, 61, 51),
-                ),
-              ),
-              NavigationDestination(
-                icon: Icon(
-                  Icons.language_outlined,
-                  color: Colors.white,
-                ),
-                label: 'Languages',
-                selectedIcon: Icon(
-                  Icons.language,
-                  color: Color.fromARGB(255, 207, 61, 51),
-                ),
-              ),
-              NavigationDestination(
-                icon: Icon(
-                  Icons.settings_outlined,
-                  color: Colors.white,
-                ),
-                label: 'Settings',
-                selectedIcon: Icon(
-                  Icons.settings,
-                  color: Color.fromARGB(255, 207, 61, 51),
-                ),
-              ),
-            ]),
-      ),
+
+
+
+
     );
   }
 }
