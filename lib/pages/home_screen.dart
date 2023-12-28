@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 10, 10, 10),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen>
               'Hello User,',
               style: TextStyle(
                   fontSize: 30.0,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.italic),
             ),
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ? Text(
                       'No Signs Yet',
                       style: TextStyle(
-                        color: Colors.white60,
+                        color: Colors.black87,
                       ),
                     )
                   : ListView.builder(

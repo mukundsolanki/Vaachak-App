@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -36,7 +35,7 @@ class LearnScreen extends StatelessWidget {
     _height = MediaQuery.of(context).size.height;
     _width = MediaQuery.of(context).size.width;
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: Container(
           height: _height,
           width: _width,
@@ -52,7 +51,7 @@ class LearnScreen extends StatelessWidget {
                     'Learnings,',
                     style: TextStyle(
                         fontSize: 35,
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
@@ -65,28 +64,12 @@ class LearnScreen extends StatelessWidget {
                     onTap: () {
                       _launchYouTube(link_asl_basics);
                     },
-                    child: GlassmorphicContainer(
+                    child: Container(
                       width: 600,
                       height: 340, // Adjust the height as needed
-                      borderRadius: 20,
-                      linearGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white.withOpacity(0.4),
-                          Colors.white30.withOpacity(0.3),
-                        ],
-                        stops: [0.1, 0.9],
-                      ),
-                      border: 2,
-                      blur: 10,
-                      borderGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white24.withOpacity(0.5),
-                          Colors.white70.withOpacity(0.5),
-                        ],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey.shade300,
                       ),
                       child: Column(
                         children: [
@@ -112,14 +95,14 @@ class LearnScreen extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                     ),
                                   ),
                                   SizedBox(height: 5),
                                   Text(
                                     "Learn ASL Basics: From essential signs to foundational gestures, discover an easy-to-follow guide that introduces you to the basics of communication through ASL. This tutorial is perfect for beginners.",
                                     style: TextStyle(
-                                        fontSize: 13, color: Colors.white),
+                                        fontSize: 13, color: Colors.black),
                                   ),
                                 ],
                               ),
@@ -137,30 +120,13 @@ class LearnScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.all(6.0),
-                    child: GlassmorphicContainer(
+                    child: Container(
                       width: 600,
                       height: 340, // Adjust the height as needed
-                      borderRadius: 20,
-                      linearGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white.withOpacity(0.4),
-                          Colors.white30.withOpacity(0.3),
-                        ],
-                        stops: [0.1, 0.9],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey.shade300,
                       ),
-                      border: 2,
-                      blur: 10,
-                      borderGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white24.withOpacity(0.5),
-                          Colors.white70.withOpacity(0.5),
-                        ],
-                      ),
-
                       child: Column(
                         children: [
                           Container(
@@ -186,7 +152,7 @@ class LearnScreen extends StatelessWidget {
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: Colors.black),
                                       ),
                                       Padding(
                                           padding: const EdgeInsets.all(5.0)),
@@ -194,7 +160,7 @@ class LearnScreen extends StatelessWidget {
                                           'This series aims to bring ISL into the public sphere . It is for  people who can hear.Medium of instruction will be English. Anyone with a basic understanding of English can gain from this.',
                                           style: TextStyle(
                                               fontSize: 13,
-                                              color: Colors.white))
+                                              color: Colors.black))
                                     ])),
                           ),
                         ],
@@ -209,28 +175,12 @@ class LearnScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.all(6.0),
-                    child: GlassmorphicContainer(
+                    child: Container(
                       width: 600,
                       height: 350, // Adjust the height as needed
-                      borderRadius: 20,
-                      linearGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white.withOpacity(0.4),
-                          Colors.white30.withOpacity(0.3),
-                        ],
-                        stops: [0.1, 0.9],
-                      ),
-                      border: 2,
-                      blur: 10,
-                      borderGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white24.withOpacity(0.5),
-                          Colors.white70.withOpacity(0.5),
-                        ],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey.shade300,
                       ),
                       child: Column(
                         children: [
@@ -254,13 +204,13 @@ class LearnScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                      color: Colors.black),
                                 ),
                                 Padding(padding: const EdgeInsets.all(5.0)),
                                 Text(
                                     'Juan Pablo de Bonet is credited with publishing the first sign language instructional book for the deaf in 1620. The book was based on the work of Girolamo Cardano, an Italian physician, who believed that it wasn’t necessary to hear words in order to understand ideas.',
                                     style: TextStyle(
-                                        fontSize: 13, color: Colors.white))
+                                        fontSize: 13, color: Colors.black))
                               ]))
                         ],
                       ),
@@ -274,28 +224,12 @@ class LearnScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.all(6.0),
-                    child: GlassmorphicContainer(
+                    child: Container(
                       width: 600,
                       height: 340, // Adjust the height as needed
-                      borderRadius: 20,
-                      linearGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white.withOpacity(0.4),
-                          Colors.white30.withOpacity(0.3),
-                        ],
-                        stops: [0.1, 0.9],
-                      ),
-                      border: 2,
-                      blur: 10,
-                      borderGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white24.withOpacity(0.5),
-                          Colors.white70.withOpacity(0.5),
-                        ],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey.shade300,
                       ),
                       child: Column(
                         children: [
@@ -320,13 +254,13 @@ class LearnScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                      color: Colors.black),
                                 ),
                                 Padding(padding: const EdgeInsets.all(5.0)),
                                 Text(
                                     "Learn about the subtle nuances and intricate hand movements that encapsulate emotions in Indian Sign Language. Explore a diverse range of feelings, from the warmth of happiness to the depths of sorrow, understanding the cultural context behind each expression",
                                     style: TextStyle(
-                                        fontSize: 13, color: Colors.white))
+                                        fontSize: 13, color: Colors.black))
                               ])),
                         ],
                       ),
@@ -340,28 +274,12 @@ class LearnScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.all(6.0),
-                    child: GlassmorphicContainer(
+                    child: Container(
                       width: 600,
                       height: 340, // Adjust the height as needed
-                      borderRadius: 20,
-                      linearGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white.withOpacity(0.4),
-                          Colors.white30.withOpacity(0.3),
-                        ],
-                        stops: [0.1, 0.9],
-                      ),
-                      border: 2,
-                      blur: 10,
-                      borderGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white24.withOpacity(0.5),
-                          Colors.white70.withOpacity(0.5),
-                        ],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey.shade300,
                       ),
                       child: Column(
                         children: [
@@ -386,13 +304,13 @@ class LearnScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                      color: Colors.black),
                                 ),
                                 Padding(padding: const EdgeInsets.all(5.0)),
                                 Text(
                                     'This tutorial aims to empower individuals of all backgrounds to communicate inclusively through ASL.With  demonstrations and practical examples,we strive to make learning ASL an engaging and accessible experience for everyone.',
                                     style: TextStyle(
-                                        fontSize: 13, color: Colors.white))
+                                        fontSize: 13, color: Colors.black))
                               ])),
                         ],
                       ),
@@ -406,28 +324,12 @@ class LearnScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.all(6.0),
-                    child: GlassmorphicContainer(
+                    child: Container(
                       width: 600,
                       height: 340, // Adjust the height as needed
-                      borderRadius: 20,
-                      linearGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white.withOpacity(0.4),
-                          Colors.white30.withOpacity(0.3),
-                        ],
-                        stops: [0.1, 0.9],
-                      ),
-                      border: 2,
-                      blur: 10,
-                      borderGradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.white24.withOpacity(0.5),
-                          Colors.white70.withOpacity(0.5),
-                        ],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey.shade300,
                       ),
                       child: Column(
                         children: [
@@ -451,13 +353,13 @@ class LearnScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                      color: Colors.black),
                                 ),
                                 Padding(padding: const EdgeInsets.all(5.0)),
                                 Text(
                                     'DEF aims to bridge the gap between hearing and Deaf people in society. With this goal in mind, we provide Sign Language courses for anyone who is interested in learning it as a language.',
                                     style: TextStyle(
-                                        fontSize: 13, color: Colors.white))
+                                        fontSize: 13, color: Colors.black))
                               ])),
                         ],
                       ),

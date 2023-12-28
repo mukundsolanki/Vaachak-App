@@ -28,11 +28,23 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Add Sign',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w500,
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'Add ',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    TextSpan(
+                      text: 'Sign',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
                 ),
               ),
               IconButton(
@@ -51,14 +63,38 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
             ),
           ),
           SizedBox(height: 16.0),
+          // ElevatedButton(
+          //   onPressed: () {
+          //     String enteredText = textEditingController.text;
+          //     widget.onTextCreated(
+          //         enteredText); // Callback to pass text to HomeScreen
+          //     textEditingController.clear(); // Clear the text field
+          //     Navigator.pop(context);
+          //   },
+          //   child: Text('Create'),
+          // ),
           ElevatedButton(
             onPressed: () {
               String enteredText = textEditingController.text;
-              widget.onTextCreated(enteredText); // Callback to pass text to HomeScreen
+              widget.onTextCreated(
+                  enteredText); // Callback to pass text to HomeScreen
               textEditingController.clear(); // Clear the text field
               Navigator.pop(context);
             },
-            child: Text('Create'),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.red,
+              shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.circular(10.0),
+              ),
+            ),
+            child: Text(
+              'Create',
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.black,
+              ),
+            ),
           ),
         ],
       ),
