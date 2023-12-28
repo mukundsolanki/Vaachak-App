@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: screens[index],
         bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
+            surfaceTintColor: Colors.white,
             backgroundColor:  Colors.white,
            indicatorColor:  Colors.grey[400],
             labelTextStyle: MaterialStateProperty.all(
@@ -119,10 +120,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ]),
         ),
-
-
-
-
     );
   }
 }
