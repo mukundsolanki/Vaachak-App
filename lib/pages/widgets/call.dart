@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 const appId = 'a601fc2a6ca742bea9879b723e4a3ab5';
 String channelName = 'vaachak_channel';
 String token =
-    '007eJxTYNg9z+nJhY37d7bVtgnPLXnH9+xp7/mFcv8++3DkTFg6/5OFAkOimYFhWrJRollyormJUVJqoqWFuWWSuZFxqkmicWKSaUZ8R2pDICNDVeweJkYGCATx+RnKEhOTMxKz44FEXl5qDgMDAADbJxU=';
-int uid = 0;
+    '007eJxTYDjZs2pHms7irf+39rxKlft3Qnd/dcHzafN2+e71P/yf3eOsAkOimYFhWrJRollyormJUVJqoqWFuWWSuZFxqkmicWKS6a6Fi1IbAhkZvnJOY2FkgEAQn5+hLDExOSMxOx5I5OWl5jAwAAA0nCgH';
+int uid = 1;
 
 class CallPage extends StatefulWidget {
   const CallPage({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import cv2
 import threading
 import time
 import os
-from flask import Flask, request
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -35,7 +35,7 @@ def open_camera_for_5_seconds(video_name):
 
     open_camera = False
 
-@app.route('/receive-text', methods=['POST'])
+@app.route('/new-sign', methods=['POST'])
 def receive_text():
     try:
         received_text = request.form['text']
@@ -60,13 +60,23 @@ def start_training():
         # Respond with a success message
         return 'Training started successfully!', 200
     except Exception as e:
-        # Respond with an error message and status code 500 if an exception occurs
         print(f'Error: {e}')
         return 'Internal Server Error', 500
+    
+connected_addresses = set()
+
+@app.route('/connect', methods=['GET'])
+def connect():
+    ip_address = request.remote_addr
+    connected_addresses.add(ip_address)
+
+    print(f'Connected IP addresses: {connected_addresses}')
+
+    return jsonify({'message': 'Connected successfully'})
 
 if __name__ == '__main__':
     # Create the 'video' directory if it doesn't exist
     if not os.path.exists('video'):
         os.makedirs('video')
 
-    app.run(host='192.168.29.192', port=8000)
+    app.run(host='192.168.29.192', port=5050)
