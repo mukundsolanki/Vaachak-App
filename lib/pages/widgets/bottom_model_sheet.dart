@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class MyBottomSheet extends StatefulWidget {
   final Function(String) onTextCreated;
@@ -16,6 +17,23 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
   void dispose() {
     textEditingController.dispose();
     super.dispose();
+  }
+
+  Future<void> _sendHttpRequest(String enteredText) async {
+    final port = 8000;
+    final url = Uri.parse('http://192.168.1.5:$port/receive-text');
+    
+    try {
+      final response = await http.post(url, body: {'text': enteredText});
+      
+      if (response.statusCode == 200) {
+        print('Text sent successfully!');
+      } else {
+        print('Failed to send text. Error: ${response.statusCode}');
+      }
+    } catch (error) {
+      print('Error: $error');
+    }
   }
 
   @override
@@ -63,19 +81,11 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
             ),
           ),
           SizedBox(height: 16.0),
-          // ElevatedButton(
-          //   onPressed: () {
-          //     String enteredText = textEditingController.text;
-          //     widget.onTextCreated(
-          //         enteredText); // Callback to pass text to HomeScreen
-          //     textEditingController.clear(); // Clear the text field
-          //     Navigator.pop(context);
-          //   },
-          //   child: Text('Create'),
-          // ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               String enteredText = textEditingController.text;
+              print(enteredText);
+              await _sendHttpRequest(enteredText);
               widget.onTextCreated(
                   enteredText); // Callback to pass text to HomeScreen
               textEditingController.clear(); // Clear the text field
