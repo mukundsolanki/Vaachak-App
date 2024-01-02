@@ -21,11 +21,11 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
 
   Future<void> _sendHttpRequest(String enteredText) async {
     final port = 8000;
-    final url = Uri.parse('http://192.168.1.5:$port/receive-text');
-    
+    final url = Uri.parse('http://192.168.34.67:$port/receive-text');
+
     try {
       final response = await http.post(url, body: {'text': enteredText});
-      
+
       if (response.statusCode == 200) {
         print('Text sent successfully!');
       } else {
@@ -86,8 +86,10 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 String enteredText = textEditingController.text;
+                print(enteredText);
+                await _sendHttpRequest(enteredText);
                 widget.onTextCreated(enteredText);
                 textEditingController.clear();
                 Navigator.pop(context);
@@ -110,3 +112,5 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
         ),
       ),
     );
+  }
+}
