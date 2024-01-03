@@ -147,6 +147,7 @@ class _HomeScreenState extends State<HomeScreen>
         backgroundColor: Color.fromARGB(255, 207, 61, 51),
         onPressed: () {
           showModalBottomSheet(
+             backgroundColor: Colors.transparent,
             isScrollControlled: true,
             context: context,
             builder: (BuildContext context) =>
