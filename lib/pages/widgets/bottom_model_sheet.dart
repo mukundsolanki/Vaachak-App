@@ -44,6 +44,10 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
       ),
       child: Container(
         padding: EdgeInsets.all(16.0),
+         decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30)),
+          color: Colors.white,
+         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
