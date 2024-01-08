@@ -30,6 +30,10 @@ def open_camera_for_5_seconds():
 
     open_camera = False
 
+@app.route('/start-training', methods=['POST'])
+def start_training():
+     print('Start')
+
 @app.route('/receive-text', methods=['POST'])
 def receive_text():
     try:
