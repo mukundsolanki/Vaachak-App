@@ -30,11 +30,7 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
-  void removeText(int index) {
-    setState(() {
-      texts.removeAt(index);
-    });
-  }
+ 
 
   @override
   void initState() {
@@ -51,6 +47,22 @@ class _HomeScreenState extends State<HomeScreen>
   void dispose() {
     _rotateController.dispose();
     super.dispose();
+  }
+  Future<void> _sendHttpRequest(String enteredText) async {
+    final port = 8000;
+    final url = Uri.parse('http://192.168.34.67:$port/receive-text');
+
+    try {
+      final response = await http.post(url, body: {'text': enteredText});
+
+      if (response.statusCode == 200) {
+        print('Text sent successfully!');
+      } else {
+        print('Failed to send text. Error: ${response.statusCode}');
+      }
+    } catch (error) {
+      print('Error: $error');
+    }
   }
 
   @override
@@ -130,7 +142,12 @@ class _HomeScreenState extends State<HomeScreen>
                                   color: Colors.red,
                                 ),
                                 onPressed: () {
-                                  removeText(index);
+                                 String textToRemove = texts[index].text;
+                              _sendHttpRequest(textToRemove); // Send HTTP request with the text
+
+                              setState(() {
+                                texts.removeAt(index);
+                              });
                                 },
                               ),
                             ],
@@ -147,6 +164,7 @@ class _HomeScreenState extends State<HomeScreen>
         backgroundColor: Color.fromARGB(255, 207, 61, 51),
         onPressed: () {
           showModalBottomSheet(
+             backgroundColor: Colors.transparent,
             isScrollControlled: true,
             context: context,
             builder: (BuildContext context) =>

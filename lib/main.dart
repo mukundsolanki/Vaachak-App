@@ -42,6 +42,25 @@ class _MyHomePageState extends State<MyHomePage> {
     LearnScreen(),
     SettingsScreen(),
   ];
+  Future<void> startTraining() async {
+    final port = 8000;
+    final url = Uri.parse('http://192.168.34.67:$port/start-training'); // Replace with your actual URL
+
+    try {
+      final response = await http.post(url);
+
+      if (response.statusCode == 200) {
+        print('Training started successfully!');
+
+      } else {
+        print('Failed to start training. Error: ${response.statusCode}');
+
+      }
+    } catch (error) {
+      print('Error: $error');
+      // Handle error, if any
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
             fontSize: 25,
           ),
         ),
+         actions: [
+          IconButton(
+            onPressed: () {
+              startTraining(); // Call the startTraining function when sync icon is pressed
+            },
+            icon: Icon(
+              Icons.sync,
+              color: Colors.black,
+            ),
+          ),
+        ],
       ),
       body: screens[index],
         bottomNavigationBar: NavigationBarTheme(
