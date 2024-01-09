@@ -45,4 +45,4 @@ def receive_text():
         return 'Text parameter missing in the request', 400
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.5', port=8000)
+    app.run(host='192.168.34.67', port=8000)

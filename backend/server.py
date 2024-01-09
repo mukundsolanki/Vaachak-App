@@ -55,4 +55,4 @@ if __name__ == '__main__':
     if not os.path.exists('video'):
         os.makedirs('video')
 
-    app.run(host='192.168.1.5', port=8000)
+    app.run(host='192.168.34.67', port=8000)
