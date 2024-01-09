@@ -20,8 +20,8 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
   }
 
   Future<void> _sendHttpRequest(String enteredText) async {
-    final port = 8000;
-    final url = Uri.parse('http://192.168.34.67:$port/receive-text');
+    final port = 5050;
+    final url = Uri.parse('http://192.168.29.28:$port/new-sign');
 
     try {
       final response = await http.post(url, body: {'text': enteredText});
