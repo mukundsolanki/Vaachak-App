@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'widgets/bottom_model_sheet.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   String get title => 'as';
@@ -49,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
   Future<void> _sendHttpRequest(String enteredText) async {
-    final port = 8000;
-    final url = Uri.parse('http://192.168.34.67:$port/receive-text');
+    final port = 5050;
+    final url = Uri.parse('http://192.168.29.28:$port/delete-sign');
 
     try {
       final response = await http.post(url, body: {'text': enteredText});

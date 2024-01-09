@@ -49,10 +49,24 @@ def receive_text():
         return 'Text received successfully!', 200
     except KeyError:
         return 'Text parameter missing in the request', 400
+    
+app.route('/start-training', methods=['POST'])
+def start_training():
+    try:
+        # Perform actions related to starting the training here
+        # You can print the received data, process it, etc.
+        print('Received POST request to start training.')
+
+        # Respond with a success message
+        return 'Training started successfully!', 200
+    except Exception as e:
+        # Respond with an error message and status code 500 if an exception occurs
+        print(f'Error: {e}')
+        return 'Internal Server Error', 500
 
 if __name__ == '__main__':
     # Create the 'video' directory if it doesn't exist
     if not os.path.exists('video'):
         os.makedirs('video')
 
-    app.run(host='192.168.34.67', port=8000)
+    app.run(host='192.168.29.192', port=8000)

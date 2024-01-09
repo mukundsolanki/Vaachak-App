@@ -3,6 +3,7 @@ import 'pages/home_screen.dart';
 import 'pages/connect_screen.dart';
 import 'pages/learn_screen.dart';
 import 'pages/settings_screen.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -42,9 +43,10 @@ class _MyHomePageState extends State<MyHomePage> {
     LearnScreen(),
     SettingsScreen(),
   ];
+
   Future<void> startTraining() async {
-    final port = 8000;
-    final url = Uri.parse('http://192.168.34.67:$port/start-training'); // Replace with your actual URL
+    final port = 5050;
+    final url = Uri.parse('http://192.168.29.28:$port/start-training'); // Replace with your actual URL
 
     try {
       final response = await http.post(url);
@@ -82,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
               startTraining(); // Call the startTraining function when sync icon is pressed
             },
             icon: Icon(
-              Icons.sync,
+              Icons.cloud_upload_outlined,
               color: Colors.black,
             ),
           ),
