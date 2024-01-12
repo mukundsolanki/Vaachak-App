@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'states/app_provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    final ipAddressProvider = Provider.of<IPAddressProvider>(context);
+    
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Stack(
@@ -34,7 +39,7 @@ class SettingsScreen extends StatelessWidget {
                       child: DeviceStatusContainer(
                         icon: Icons.wifi,
                         heading: 'IP Address',
-                        subheading: '127.0.0.1',
+                        subheading: ipAddressProvider.ipAddress,
                       ),
                     ),
                   ],

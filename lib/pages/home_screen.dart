@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vaachakapp/pages/states/app_provider.dart';
 import 'dart:math' as math;
 import 'widgets/bottom_model_sheet.dart';
 import 'package:http/http.dart' as http;
@@ -50,8 +52,11 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
   Future<void> _sendHttpRequest(String enteredText) async {
+    final ipAddressProvider = Provider.of<IPAddressProvider>(context, listen: false);
+    final ipAddress = ipAddressProvider.ipAddress;
+
     final port = 5050;
-    final url = Uri.parse('http://192.168.29.28:$port/delete-sign');
+    final url = Uri.parse('http://$ipAddress:$port/delete-sign');
 
     try {
       final response = await http.post(url, body: {'text': enteredText});

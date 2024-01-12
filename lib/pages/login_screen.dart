@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
+import 'package:vaachakapp/main.dart';
+import 'states/app_provider.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -36,6 +40,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final ipAddressProvider = Provider.of<IPAddressProvider>(context);
+
     return Scaffold(
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -74,7 +80,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Container(
-                      
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -102,33 +107,35 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             SizedBox(height: 25),
                             Row(
-
                               children: [
                                 Expanded(
-                                  flex: 5 ,
-
+                                  flex: 5,
                                   child: SizedBox(
                                     height: 45,
                                     child: TextFormField(
                                       controller: ipAddressController,
-                                      style: TextStyle(color: Colors.white,fontSize: 16),
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 16),
                                       decoration: InputDecoration(
-
                                         hintText: 'IP address',
-                                        contentPadding: const EdgeInsets.symmetric(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
                                           vertical: 3,
                                           horizontal: 8,
                                         ),
-                                        hintStyle: TextStyle(color: Colors.grey,fontSize: 16),
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 16),
                                         enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10.0),
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
                                           borderSide: const BorderSide(
                                             color: Colors.red,
                                             width: 2,
                                           ),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10.0),
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
                                           borderSide: const BorderSide(
                                             color: Colors.red,
                                             width: 2,
@@ -143,36 +150,61 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SizedBox(width: 6),
                                 Expanded(
                                   flex: 1,
-
                                   child: SizedBox(
-                                  //  width: 1,
+                                    //  width: 1,
                                     child: ElevatedButton(
-
                                       style: ElevatedButton.styleFrom(
                                         primary: Colors.red,
                                         shape: CircleBorder(),
-                                            padding:EdgeInsets.all(10),
-                                         // borderRadius: BorderRadius.circular(40.0),
-
-
+                                        padding: EdgeInsets.all(10),
+                                        // borderRadius: BorderRadius.circular(40.0),
                                       ),
-                                      onPressed: () {
-                                        String ipAddress = ipAddressController.text;
-                                        // Use the IP address as needed
+                                      onPressed: () async {
+                                        String ipAddress =
+                                            ipAddressController.text;
                                         print('Entered IP address: $ipAddress');
-                                      },
-                                      child:  Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
 
+                                        ipAddressProvider
+                                            .setIPAddress(ipAddress);
+
+                                        final url = Uri.parse(
+                                            'http://$ipAddress:5050/connect');
+                                        try {
+                                          final response = await http.get(url);
+
+                                          if (response.statusCode == 200) {
+                                            print('GET request successful!');
+                                            print(
+                                                'Response data: ${response.body}');
+                                          } else {
+                                            print(
+                                                'Failed to make GET request. Error: ${response.statusCode}');
+                                            // Handle the error
+                                          }
+                                        } catch (error) {
+                                          print('Error: $error');
+                                          // Handle the error
+                                        }
+
+                                        // Navigate to the home page
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MyHomePage(
+                                                title: 'Vaachak App'),
+                                          ),
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
                                           Icon(
                                             Icons.arrow_forward,
                                             color: Colors.white,
                                             size: 22,
                                           ),
-                                          ],
-
+                                        ],
                                       ),
                                     ),
                                   ),

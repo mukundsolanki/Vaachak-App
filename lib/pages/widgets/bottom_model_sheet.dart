@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
+import 'package:vaachakapp/pages/states/app_provider.dart';
 
 class MyBottomSheet extends StatefulWidget {
   final Function(String) onTextCreated;
@@ -20,8 +22,11 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
   }
 
   Future<void> _sendHttpRequest(String enteredText) async {
+    final ipAddressProvider = Provider.of<IPAddressProvider>(context, listen: false);
+    final ipAddress = ipAddressProvider.ipAddress;
+
     final port = 5050;
-    final url = Uri.parse('http://192.168.29.28:$port/new-sign');
+    final url = Uri.parse('http://$ipAddress:$port/new-sign');
 
     try {
       final response = await http.post(url, body: {'text': enteredText});
