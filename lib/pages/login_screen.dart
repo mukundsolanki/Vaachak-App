@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         VideoPlayerController.asset("assets/videos/backgroundvideo.mp4");
     chewieController = ChewieController(
       videoPlayerController: videoPlayerController,
-      aspectRatio: 16 / 9,
+      aspectRatio: videoPlayerController.value.aspectRatio,
       autoPlay: true,
       looping: true,
       autoInitialize: true,
@@ -43,6 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final ipAddressProvider = Provider.of<IPAddressProvider>(context);
 
     return Scaffold(
+       resizeToAvoidBottomInset: false,
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           chewieController = ChewieController(
@@ -74,7 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SingleChildScrollView(
-                scrollDirection: Axis.vertical,
+                reverse: true,
+                padding:EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom) ,
+             //   scrollDirection: Axis.vertical,
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
@@ -83,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             SizedBox(height: 550),
